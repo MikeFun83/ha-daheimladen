@@ -1,0 +1,15 @@
+{
+  "domain": "daheimladen",
+  "name": "DaheimLaden / WEEYU",
+  "codeowners": [
+    "@MikeFun83"
+  ],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/MikeFun83/ha-daheimladen",
+  "integration_type": "device",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/MikeFun83/ha-daheimladen/issues",
+  "requirements": [],
+  "version": "2.3.0-dev1"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "DaheimLaden / WEEYU",
+  "content_in_root": false,
+  "render_readme": true,
+  "domains": [
+    "daheimladen"
+  ],
+  "homeassistant": "2024.6.0"
+}

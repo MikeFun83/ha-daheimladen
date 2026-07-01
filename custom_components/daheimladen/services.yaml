@@ -1,0 +1,65 @@
+start_charge:
+  name: Ladevorgang starten
+  description: Startet einen Ladevorgang über die DaheimLaden Cloud.
+  fields:
+    station_id:
+      name: Ladestation-ID
+      description: Optional. Nur nötig, wenn mehrere DaheimLaden-Ladestationen eingerichtet sind.
+      example: "YOUR_STATION_ID"
+      selector:
+        text:
+
+stop_charge:
+  name: Ladevorgang stoppen
+  description: Stoppt den aktiven Ladevorgang über die DaheimLaden Cloud.
+  fields:
+    station_id:
+      name: Ladestation-ID
+      description: Optional. Nur nötig, wenn mehrere DaheimLaden-Ladestationen eingerichtet sind.
+      example: "YOUR_STATION_ID"
+      selector:
+        text:
+
+set_current:
+  name: Ladestrom setzen
+  description: Setzt den maximalen Ladestrom der Wallbox in Ampere.
+  fields:
+    station_id:
+      name: Ladestation-ID
+      description: Optional. Nur nötig, wenn mehrere DaheimLaden-Ladestationen eingerichtet sind.
+      example: "YOUR_STATION_ID"
+      selector:
+        text:
+    ampere:
+      name: Ampere
+      description: Ladestrom zwischen 6 und 16 Ampere.
+      required: true
+      example: 10
+      selector:
+        number:
+          min: 6
+          max: 16
+          step: 1
+          mode: slider
+
+refresh:
+  name: Aktualisieren
+  description: Holt die Daten der DaheimLaden Wallbox sofort neu ab.
+  fields:
+    station_id:
+      name: Ladestation-ID
+      description: Optional. Nur nötig, wenn mehrere DaheimLaden-Ladestationen eingerichtet sind.
+      example: "YOUR_STATION_ID"
+      selector:
+        text:
+
+discover_idtag:
+  name: IDTag suchen
+  description: Sucht den IDTag bestmöglich über bekannte DaheimLaden-/Firebase-Endpunkte. Der gefundene Wert wird nicht in Diagnosen offengelegt.
+  fields:
+    station_id:
+      name: Ladestation-ID
+      description: Optional. Nur nötig, wenn mehrere DaheimLaden-Ladestationen eingerichtet sind.
+      example: "YOUR_STATION_ID"
+      selector:
+        text:

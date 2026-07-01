@@ -1,0 +1,40 @@
+{
+  "title": "DaheimLaden / WEEYU",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Set up DaheimLaden",
+        "description": "Sign in with your DaheimLaden email and password. IDTag is optional. If empty, the integration tries to discover it automatically.",
+        "data": {
+          "email": "Email",
+          "password": "Password",
+          "station_id": "Station ID",
+          "idtag": "IDTag (optional)",
+          "scan_interval": "Scan interval",
+          "base_url": "API base URL",
+          "api_key": "Firebase API key"
+        }
+      }
+    },
+    "error": {
+      "auth": "Login failed. Check email, password and API key."
+    },
+    "abort": {
+      "already_configured": "This charging station is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "DaheimLaden options",
+        "description": "Standby scan interval. Updates are faster while charging.",
+        "data": {
+          "scan_interval": "Standby update interval (seconds)",
+          "fast_scan_interval": "Charging update interval (seconds)",
+          "offline_scan_interval": "Offline update interval (seconds)",
+          "debug": "Enable debug"
+        }
+      }
+    }
+  }
+}

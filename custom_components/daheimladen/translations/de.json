@@ -1,0 +1,40 @@
+{
+  "title": "DaheimLaden / WEEYU",
+  "config": {
+    "step": {
+      "user": {
+        "title": "DaheimLaden einrichten",
+        "description": "DaheimLaden Login mit E-Mail und Passwort. IDTag ist optional. Wenn leer, versucht die Integration ihn automatisch zu erkennen.",
+        "data": {
+          "email": "E-Mail",
+          "password": "Passwort",
+          "station_id": "Station ID",
+          "idtag": "IDTag (optional)",
+          "scan_interval": "Aktualisierungsintervall",
+          "base_url": "API Basis-URL",
+          "api_key": "Firebase API-Key"
+        }
+      }
+    },
+    "error": {
+      "auth": "Anmeldung fehlgeschlagen. Bitte E-Mail, Passwort und API-Key prüfen."
+    },
+    "abort": {
+      "already_configured": "Diese Ladestation ist bereits eingerichtet."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "DaheimLaden Optionen",
+        "description": "Aktualisierungsintervall im Standby. Während des Ladens wird automatisch schneller aktualisiert.",
+        "data": {
+          "scan_interval": "Standby-Aktualisierung (Sekunden)",
+          "fast_scan_interval": "Aktualisierung beim Laden (Sekunden)",
+          "offline_scan_interval": "Offline-Aktualisierung (Sekunden)",
+          "debug": "Debug aktivieren"
+        }
+      }
+    }
+  }
+}
