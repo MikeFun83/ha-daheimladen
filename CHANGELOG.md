@@ -1,14 +1,16 @@
 # Changelog
 
-## v2.3.0-dev1
+## v2.3.0
 
 - Removed hard-coded Google/Firebase API key from the public repository.
-- Firebase API key is now required during setup.
+- Firebase API key is now required during new setup.
 - Existing installations keep their already stored API key.
+- Added README instructions for finding the Firebase API key in the DaheimLaden login request.
 - Added clearer error if the API key is missing.
+- Kept automatic IDTag discovery via the DaheimLaden card endpoint (`cs:get_cards`).
+- Kept start/stop charging and charge-current control unchanged.
 
-
-## 2.2.0
+## v2.2.0
 
 - Added automatic IDTag discovery via the DaheimLaden card endpoint (`cs:get_cards`).
 - Made the IDTag field optional during setup.
@@ -21,20 +23,20 @@
 - Diagnostics redact IDTags, tokens, passwords and API keys.
 - Kept the v2.1.2 options-flow fix and persisted charge-current handling.
 
-## 2.1.2
+## v2.1.2
 
 - Fixed options/configuration dialog failing with HTTP 500 in newer Home Assistant versions.
 - Options are applied by reloading the config entry after saving.
 - Updated manifest version to 2.1.2.
 
-## 2.1.1
+## v2.1.1
 
 - Persisted last known/set charge current across Home Assistant restarts.
 - Avoided `unknown` for the charge-current number entity when DaheimLaden does not return `ChargeRate`.
 - Made the configured-charge-current sensor use the same persisted value.
 - Kept HACS/GitHub repository structure clean.
 
-## 2.1.0
+## v2.1.0
 
 - Removed `get_config` because the API returned HTTP 405.
 - Fixed energy sensor state-class handling.

@@ -39,6 +39,7 @@ Required values:
 - DaheimLaden e-mail
 - DaheimLaden password
 - Station ID
+- Firebase API-Key
 
 Optional values:
 
@@ -78,17 +79,62 @@ The integration exposes these services:
 - `daheimladen.refresh`
 - `daheimladen.discover_idtag`
 
-## Version 2.2.0
+## Firebase API-Key
 
-- IDTag auto-discovery confirmed via `cs:get_cards`
-- IDTag field is optional during setup
-- Remote start automatically searches for an IDTag if none is configured
-- Manual IDTag remains available as fallback
-- IDTags and tokens are redacted in diagnostics
-- Based on the stable v2.1.2 codebase
+The integration uses the DaheimLaden cloud API. The login is handled through Firebase Identity Toolkit.
+
+For security reasons, this repository does **not** include a Firebase API key. New installations must enter the Firebase Web API key during setup. Existing Home Assistant installations keep their already stored API key when the integration is updated.
+
+The Firebase API key is **not** one of these values:
+
+- `access_token`
+- `refresh_token`
+- `id_token`
+- `user_id`
+- `project_id`
+
+These values are personal login/session data and must never be shared publicly.
+
+### How to find the Firebase API key
+
+1. Open the DaheimLaden web portal in your browser.
+2. Open the browser developer tools.
+   - Chrome / Edge: press `F12`
+   - or right-click → **Inspect**
+3. Open the **Network** tab.
+4. Log in to DaheimLaden.
+5. Look for a request containing one of these names:
+   - `verifyPassword`
+   - `signInWithPassword`
+6. Open that request and switch to **Headers**.
+7. Check the **Request URL**. It usually looks similar to one of these examples:
+
+```text
+https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=YOUR_FIREBASE_WEB_API_KEY
+```
+
+or:
+
+```text
+https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=YOUR_FIREBASE_WEB_API_KEY
+```
+
+The Firebase API key is the value after:
+
+```text
+key=
+```
+
+Enter this value in Home Assistant during setup in the field **Firebase API-Key**.
+
+Do not publish the real key in GitHub, screenshots, issues or logs.
+
+## Version 2.3.0
+
+- Removed hard-coded Google/Firebase API key from the public repository
+- Firebase API key is required during new setup
+- Existing installations keep their already stored API key
+- Added README instructions for finding the Firebase API key without exposing tokens
+- Kept automatic IDTag discovery via `cs:get_cards`
+- Kept start/stop charging and charge-current control
 - HACS/GitHub-ready structure
-
-
-## Security note
-
-The DaheimLaden/Firebase API key is intentionally not hard-coded in this public repository. Existing Home Assistant installations keep the API key in their config entry. For new installations, enter the Firebase API key in the setup dialog.
